@@ -23,7 +23,6 @@
 
 | Column              | Type                 | Options          |
 | ------------------- | -------------------- | ---------------- |
-| image               | ActiveStorageで実装   | null: false      |
 | name                | string               | null: false      |
 | info                | text                 | null: false      |
 | category            | string               | null: false      |
