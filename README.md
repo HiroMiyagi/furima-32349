@@ -28,16 +28,12 @@
 | prefecture          | string               | null: false      |
 | scheduled_delivery  | string               | null: false      |
 | price               | integer              | null: false      |
-| users               | references           | foreign_key:true |
+| user                | references           | foreign_key:true |
 
 ## purchases テーブル(購入情報)
 
 | Column                | Type                 | Options          |
 | --------------------- | -------------------- | ---------------- |
-| card_number           | integer              | null: false      |
-| card_expiration_month | integer              | null: false      |
-| card_expiration_year  | integer              | null: false      |
-| card_security_code    | integer              | null: false      |
 | user                  | references           | foreign_key:true |
 | item                  | references           | foreign_key:true |
 
