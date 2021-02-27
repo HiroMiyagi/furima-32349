@@ -52,15 +52,15 @@
 
 ## recipients テーブル(配送情報)
 
-| Column       | Type       | Options          |
-| ------------ | ---------- | ---------------- |
-| postal_code  | string     | null: false      |
-| prefecture   | string     | null: false      |
-| city         | string     | null: false      |
-| address      | string     | null: false      |
-| buillding    | string     | null: false      |
-| phone_number | integer    | null: false      |
-| purchase     | references | foreign_key:true |
+| Column        | Type       | Options          |
+| ------------- | ---------- | ---------------- |
+| postal_code   | string     | null: false      |
+| prefecture_id | integer    | null: false      |
+| city          | string     | null: false      |
+| address       | string     | null: false      |
+| buillding     | string     | null: false      |
+| phone_number  | integer    | null: false      |
+| purchase      | references | foreign_key:true |
 
 ### Association
 - belongs_to :user
