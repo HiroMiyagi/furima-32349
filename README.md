@@ -1,24 +1,62 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type    | Options                |
+| --------------- | ------- | ---------------------- |
+| nickname        | string  | null:false             |
+| email           | string  | null:false,unique:true |
+| password        | string  | null:false             |
+| last_name       | string  | null:false             |
+| first_name      | string  | null:false             |
+| last_name_kana  | string  | null:false             |
+| first_name_kana | string  | null:false             |
+| birth_year      | integer | null:false             |
+| birth_mont      | integer | null:false             |
+| birth_day       | integer | null:false             |
 
-* Ruby version
+## items テーブル(出品情報)
 
-* System dependencies
+| Column              | Type                 | Options          |
+| ------------------- | -------------------- | ---------------- |
+| image               | ActiveStorageで実装   | null: false      |
+| name                | string               | null: false      |
+| info                | text                 | null: false      |
+| category            | string               | null: false      |
+| sales_status        | string               | null: false      |
+| shipping_fee_status | string               | null: false      |
+| prefecture          | string               | null: false      |
+| scheduled_delivery  | string               | null: false      |
+| price               | integer              | null: false      |
+| users               | references           | foreign_key:true |
 
-* Configuration
+## purchases テーブル(購入情報)
 
-* Database creation
+| Column                | Type                 | Options          |
+| --------------------- | -------------------- | ---------------- |
+| card_number           | integer              | null: false      |
+| card_expiration_month | integer              | null: false      |
+| card_expiration_year  | integer              | null: false      |
+| card_security_code    | integer              | null: false      |
+| user                  | references           | foreign_key:true |
+| item                  | references           | foreign_key:true |
 
-* Database initialization
+## recipients テーブル(配送情報)
 
-* How to run the test suite
+| Column       | Type       | Options          |
+| ------------ | ---------- | ---------------- |
+| postal_code  | integer    | null: false      |
+| prefecture   | string     | null: false      |
+| city         | string     | null: false      |
+| address      | string     | null: false      |
+| buillding    | string     | null: false      |
+| phone_number | integer    | null: false      |
+| purchase     | references | foreign_key:true |
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments テーブル
 
-* Deployment instructions
-
-* ...
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| text      | text       | null: false |
+| user      | references | null: false |
+| item      | references | null: false |
