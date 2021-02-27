@@ -15,6 +15,12 @@
 | birth_mont      | integer | null:false             |
 | birth_day       | integer | null:false             |
 
+### Association
+- has_many :items
+- has_many :purchases
+- has_many :comments
+
+
 ## items テーブル(出品情報)
 
 | Column              | Type                 | Options          |
@@ -30,12 +36,22 @@
 | price               | integer              | null: false      |
 | user                | references           | foreign_key:true |
 
+### Association
+- belongs_to :user
+- has_one :purchase
+- has_many :comments
+
 ## purchases テーブル(購入情報)
 
 | Column                | Type                 | Options          |
 | --------------------- | -------------------- | ---------------- |
 | user                  | references           | foreign_key:true |
 | item                  | references           | foreign_key:true |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :recipients
 
 ## recipients テーブル(配送情報)
 
@@ -49,6 +65,10 @@
 | phone_number | integer    | null: false      |
 | purchase     | references | foreign_key:true |
 
+### Association
+- belongs_to :user
+- belongs_to :purchase
+
 ## comments テーブル
 
 | Column    | Type       | Options     |
@@ -56,3 +76,7 @@
 | text      | text       | null: false |
 | user      | references | null: false |
 | item      | references | null: false |
+
+### Association
+- has_many :purchases
+- has_many :comments
