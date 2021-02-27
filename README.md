@@ -48,7 +48,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :recipients
+- has_one :recipient
 
 ## recipients テーブル(配送情報)
 
