@@ -63,7 +63,6 @@
 | purchase      | references | foreign_key:true |
 
 ### Association
-- belongs_to :user
 - belongs_to :purchase
 
 ## comments テーブル
