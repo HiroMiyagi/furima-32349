@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   ### アソシエーション
   belongs_to :user
+  has_one_attached :image
 
   ### バリデーション
   with_options presence: true do
@@ -13,5 +14,4 @@ class Item < ApplicationRecord
     validates :scheduled_delivery_id
     validates :price
   end
-
 end
