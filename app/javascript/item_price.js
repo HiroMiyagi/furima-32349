@@ -9,3 +9,4 @@ window.addEventListener('load', () => {
     addProfit.innerHTML = inputValue - Math.floor(inputValue * tax);
   });
 });
+
