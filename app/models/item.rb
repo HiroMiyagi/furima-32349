@@ -14,6 +14,7 @@ class Item < ApplicationRecord
     validates :name
     validates :info
     validates :price
+    validates :image
   end
 
   with_options presence: true, numericality: { other_than: 1 } do
