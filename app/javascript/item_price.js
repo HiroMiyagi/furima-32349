@@ -1,7 +1,11 @@
-function item_price() {
-  const price_input = document.querySelector(".price-input");
-  price_input.addEventListener("input",function(){
-    console.log("Input action");
+window.addEventListener('load', () => {
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input",function(){
+    const inputValue = priceInput.value;
+    const tax = 0.1
+    const addTaxDom = document.getElementById("add-tax-price");
+    addTaxDom.innerHTML = Math.floor(inputValue * tax);
+    const addProfit = document.getElementById("profit");
+    addProfit.innerHTML = inputValue - Math.floor(inputValue * tax);
   });
-}
-window.addEventListener("", item_price);
+});
