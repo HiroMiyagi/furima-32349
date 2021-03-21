@@ -64,52 +64,52 @@ RSpec.describe Item, type: :model do
       it 'priceが299円以下だと登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが10000000円以上だと登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it 'priceが全角数字だと登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it 'prefecture_idが１以外でないと登録できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'scheduled_delivery_idが１以外でないと登録できない' do
         @item.scheduled_delivery_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Scheduled delivery must be other than 1")
+        expect(@item.errors.full_messages).to include('Scheduled delivery must be other than 1')
       end
       it 'shipping_fee_status_idが１以外でないと登録できない' do
         @item.shipping_fee_status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping fee status must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping fee status must be other than 1')
       end
       it 'sales_status_idが１以外でないと登録できない' do
         @item.sales_status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales status must be other than 1")
+        expect(@item.errors.full_messages).to include('Sales status must be other than 1')
       end
       it 'category_idが１以外でないと登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it '価格は半角英数混合では登録できないこと' do
         @item.price = '1a1a1a'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it '価格は半角英語だけでは登録できないこと' do
         @item.price = 'aaaaaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
