@@ -24,7 +24,7 @@ class Item < ApplicationRecord
     validates :scheduled_delivery_id
   end
 
-  validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   PRICE_REGEX = /\A[0-9]+\z/.freeze
   validates_format_of :price, with: PRICE_REGEX, message: 'は半角数字を入力してください'
 end
