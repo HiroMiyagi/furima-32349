@@ -12,5 +12,8 @@ class PurchaseRecipient
     validates :address, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: 'には全角文字を使用してください' }
     validates :phone_number, numericality: { only_integer: true }
   end
-end
 
+  def save
+    purchase = Purchase.create(user: current_user.id)
+  end
+end
