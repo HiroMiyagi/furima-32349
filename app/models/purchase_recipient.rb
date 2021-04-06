@@ -1,6 +1,6 @@
 class PurchaseRecipient
   include ActiveModel::Model
-  attr_accessor :user, :item, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase
+  attr_accessor :user, :item, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :purchase
 
   #バリデーション
   with_options presence: true do
@@ -14,6 +14,7 @@ class PurchaseRecipient
   end
 
   def save
-    purchase = Purchase.create(user: current_user.id)
+    purchase = Purchase.create(user: current_user.id, item: item_id)
+    Recipient.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, buillding: buillding, phone_number: phone_number, purchase: purchase.id)
   end
 end
