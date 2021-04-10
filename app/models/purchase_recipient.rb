@@ -1,6 +1,7 @@
 class PurchaseRecipient
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :purchase
+  attr_accessor :price, :token
 
   #バリデーション
   with_options presence: true do
@@ -10,6 +11,8 @@ class PurchaseRecipient
     # validates :address, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: 'には全角文字を使用してください' }
     validates :address
     validates :phone_number, numericality: { only_integer: true }
+    validates :token
+    validates :price
   end
 
   def save
