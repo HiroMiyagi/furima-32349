@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   def index
     @purchase_recipient = PurchaseRecipient.new
     @item = Item.find(params[:item_id])
