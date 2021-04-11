@@ -13,6 +13,8 @@ class PurchaseRecipient
     validates :phone_number, numericality: { only_integer: true }
     validates :token
     validates :price
+    validates :user_id
+    validates :item_id
   end
 
   def save
