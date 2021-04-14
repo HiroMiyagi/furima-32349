@@ -7,8 +7,5 @@ FactoryBot.define do
     buillding               { Faker::Lorem.sentence }
     phone_number            { Faker::Number.between(from: 1, to: 99999999999) }
     token                   {"tok_abcdefghijk00000000000000000"}
-    price                   {}
-    user_id                 {}
-    item_id                 {}
   end
 end
