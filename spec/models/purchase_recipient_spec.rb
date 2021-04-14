@@ -23,6 +23,10 @@ RSpec.describe PurchaseRecipient, type: :model do
         @purchase_recipient.phone_number = 19112345678
         expect(@purchase_recipient).to be_valid
       end
+      it 'builldingがなくても購入できる' do
+        @purchase_recipient.buillding = ""
+        expect(@purchase_recipient).to be_valid
+      end
     end
 
     context '商品購入がうまくいかないとき' do
