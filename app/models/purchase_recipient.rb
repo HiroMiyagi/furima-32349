@@ -1,8 +1,7 @@
 class PurchaseRecipient
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :purchase
-  attr_accessor :price, :token
-
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :purchase, :token
+  
   #バリデーション
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にはハイフンを入れて入力してください" }
@@ -11,7 +10,6 @@ class PurchaseRecipient
     validates :address
     validates :phone_number, numericality: { only_integer: true }, length: { in: 1..11 }
     validates :token
-    validates :price
     validates :user_id
     validates :item_id
   end

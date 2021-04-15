@@ -5,7 +5,6 @@ RSpec.describe PurchaseRecipient, type: :model do
     @item = FactoryBot.create(:item)
     @user = FactoryBot.create(:user)
     @purchase_recipient = FactoryBot.build(:purchase_recipient)
-    @purchase_recipient.price = @item.price
     @purchase_recipient.user_id = @user.id
     @purchase_recipient.item_id = @item.id
     sleep 0.1
