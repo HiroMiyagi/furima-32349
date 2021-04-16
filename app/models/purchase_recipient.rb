@@ -1,6 +1,6 @@
 class PurchaseRecipient
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :purchase, :token
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :buillding, :phone_number, :token
   
   #バリデーション
   with_options presence: true do
