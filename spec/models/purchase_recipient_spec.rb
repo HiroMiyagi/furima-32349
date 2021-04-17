@@ -79,6 +79,11 @@ RSpec.describe PurchaseRecipient, type: :model do
         @purchase_recipient.valid?
         expect(@purchase_recipient.errors.full_messages).to include("Phone number is not a number")
       end
+      it 'phone_numberが12桁以上だと購入できない' do
+        @purchase_recipient.phone_number = "090123456789"
+        @purchase_recipient.valid?
+        expect(@purchase_recipient.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
     end
   end
 end
