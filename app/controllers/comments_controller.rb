@@ -1,2 +1,16 @@
 class CommentsController < ApplicationController
+  def create
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to "/items/#{comment.item.id}"
+    else
+      render "/items/#{comment.item.id}"
+    end
+  end
+
+  private
+  
+  def commemt_params
+    params.require(:comment).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
 end
