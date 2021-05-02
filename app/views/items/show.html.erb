@@ -77,7 +77,7 @@
 
   <div class="comment-box">
     <% if user_signed_in? %>
-      <%= form_with(model: [@item, @comment], local: true) do |f| %>
+      <%= form_with(model: [@item, @comment]) do |f| %>
         <%= f.text_field :text, class:"comment-text" %>
         <p class="comment-warn">
           相手のことを考え丁寧なコメントを心がけましょう。
