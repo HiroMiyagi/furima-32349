@@ -90,8 +90,10 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong> %>
     <% end %>
     <% if @comments != [] %>
-      <div class="comments">
+      <div class="comments-title">
         <h4>＜コメント一覧＞</h4>
+      </div>
+      <div class="comments" id="comments">
         <% @comments.each do |comment| %>
           <p>
             <strong><%= comment.user.nickname %>：</strong>
@@ -113,16 +115,3 @@
 </div>
 
 <%= render "shared/footer" %>
-
-    <%# <form> %>
-      <%# <textarea class="comment-text"></textarea> %>
-      <%# <p class="comment-warn"> %>
-        <%# 相手のことを考え丁寧なコメントを心がけましょう。 %>
-        <%# <br> %>
-        <%# 不快な言葉遣いなどは利用制限や退会処分となることがあります。 %>
-      <%# </p> %>
-      <%# <button type="submit" class="comment-btn"> %>
-        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <%# <span>コメントする<span> %>
-      <%# </button> %>
-    <%# </form> %>
